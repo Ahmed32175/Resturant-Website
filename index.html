@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang ="en-US">
+	<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 <title>KaramRestaurant</title>
+</head>
 <div id="container">
 
 
@@ -20,29 +22,47 @@
 		<div><h1 class="announce"><pre>
 Want to place an order?
 Call us at (518)-557-2389.</pre></h1></div>
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+	<!-- Full-width images -->
+	<div class="mySlides fade">
+	  <img src="images/logo1.jpg" class = "slides">
+	</div>
+
+	<div class="mySlides fade">
+		<img src="images/logo2.jpg" class = "slides">
+	  </div>
+	  
+	<div class="mySlides fade">
+		<img src="images/spice.jpg" class="slides">
+	  </div>
+  </div>
+  <br>
+  		<div class = menuButton>
+			<button class = "menu-butt-style" onclick = "location.href='menu.html'">View Menu</button>
+		</div>
 		<div class="row">
   			<div class="column">
-			<img src ="images/logo1.jpg">
 			<img src ="images/biryani.jpg">
-			<img src ="images/gol.jpg">
-			<img src ="images/logo2.jpg">
+			<img src ="images/leg.jpg">
+			<img src ="images/about1.jpg">
 		</div>
 		<div class="column">
 			<img src ="images/out.jpg">
-			<img src ="images/naan.jpg">
-			<img src ="images/leg.jpg">
+			<img src ="images/tandoor.jpg">
 		</div>
 		<div class="column">
-			<img src ="images/about1.jpg">
-			<img src ="images/tandoor.jpg">
-			<img src ="images/tikka.jpg">
+			<img src ="images/gol.jpg">
+			<img src ="images/naan.jpg">
 
 		</div>
 		<div class="column">
 			<img src ="images/outstore.jpg">
 			<img src ="images/about2.jpg">
-			<img src ="images/spice.jpg">
-			<img src = "images/masala.jpg"
+			<img src = "images/masala.jpg">
+			<img src="images/logo2.jpg">
 			
 		</div>
 		</div>
@@ -82,6 +102,23 @@ Phone Number: (518)-557-2389
 		</div>
 	</div>
 </div>
+
+<script>
+	let slideIndex = 0;
+	showSlides();
+	
+	function showSlides() {
+	  let i;
+	  let slides = document.getElementsByClassName("mySlides");
+	  for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	  }
+	  slideIndex++;
+	  if (slideIndex > slides.length) {slideIndex = 1}
+	  slides[slideIndex-1].style.display = "block";
+	  setTimeout(showSlides, 4000); // Change image every 4 seconds
+	}
+	</script>
 </html>
 
 

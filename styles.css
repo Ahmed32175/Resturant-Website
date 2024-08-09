@@ -26,6 +26,52 @@ html, body{
 }
 /* INDEX PAGE */
 
+/* Slideshow container */
+.slideshow-container {
+	max-width: 100%;
+	max-height: 70vh;
+	position: relative;
+	margin: auto;
+	border: solid black 3px;
+	padding: 1px;
+	display: flex;
+  }
+  .slides{
+	  width: 100%;
+	  height: 100%;
+  }
+  /* Hide the images by default */
+  .mySlides {
+	display: none;
+  }
+  /* Fading animation */
+  .fade {
+	  animation-name: slide;
+	  animation-duration: 1s;
+	}
+	
+	@keyframes fade {
+	  from {opacity: .4}
+	  to {opacity: .5}
+	}
+.menuButton{
+	display: flex;
+	justify-content: center;
+	padding:1em;
+}
+.menu-butt-style{
+	background-color: #C60C30;
+	color: white;
+	font-size: 2em;
+	padding: 10px;
+	font-family:"Monaco", monospace ;
+	text-align: center;
+	border: indianred;
+}
+.menu-butt-style:hover{
+	background-color: indianred;
+	
+}
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -214,7 +260,7 @@ input[type=submit]{
 	z-index: 98;
 }
 .titles{
-	background-color: inidanred;
+	background-color: indianred;
 	color:white;
 	text-align: center;
 	font-family: monaco, monospace;

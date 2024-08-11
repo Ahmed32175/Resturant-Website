@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 <title>KaramRestaurant</title>
-<script
-  src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"
-  defer></script>
-<link
-  rel="stylesheet"
-  href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
 </head>
 <div id="container">
 
@@ -60,66 +54,66 @@ Phone Number: (518-557-2389)
 			<img src="https://png.pngtree.com/png-clipart/20230321/original/pngtree-fresh-food-label-round-sticker-png-image_8998364.png" alt="halal logo" >			
 		</div>
 	</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+	<span class="close">&times;</span>
+  
+	<img class="modal-content" id="img01">
+  </div>
+
 		<div class="row">
   			<div class="column">
-			<img src ="images/biryani.jpg">
-			<img src ="images/leg.jpg">
-			<img src ="images/about1.jpg">
-		</div>
-		<div class="column">
-			<img src ="images/out.jpg">
-			<img src ="images/tandoor.jpg">
-		</div>
-		<div class="column">
-			<img src ="images/gol.jpg">
-			<img src ="images/naan.jpg">
+			<img id = "myImg" src ="images/biryani.jpg">
+			<img id = "myImg" src ="images/leg.jpg">
+			<img id = "myImg" src="images/logo1.jpg">
+			<img id = "myImg" src="images/logo2.jpg">
 
 		</div>
 		<div class="column">
-			<img src ="images/outstore.jpg">
-			<img src ="images/about2.jpg">
-			<img src = "images/masala.jpg">
-			<img src="images/logo2.jpg">
-			
+			<img id = "myImg" src ="images/about1.jpg">
+			<img id = "myImg" src ="images/out.jpg">
+			<img id = "myImg" src ="images/tandoor.jpg">
+		</div>
+		<div class="column">
+			<img id = "myImg" src ="images/gol.jpg">
+			<img id = "myImg" src ="images/naan.jpg">
+			<img id = "myImg"src="images/spice.jpg">
+
+		</div>
+		<div class="column">
+			<img id = "myImg" src ="images/outstore.jpg">
+			<img id = "myImg" src ="images/about2.jpg">
+			<img id = "myImg" src ="images/tikka.jpg">
+			<img id = "myImg"src = "images/masala.jpg">
 		</div>
 		</div>
 	</div>
 
 <!--footer -->
-	<div id="bottom">
-		<div id="footer">
-			<div class="sect-footer">
-				<h1>HOURS:</h1><p><pre>
-Monday.....11:00 AM to 8:00 PM
-Tuesday.....CLOSED
-Wednesday.....11:00 AM to 8:00 PM
-Thursday.....11:00 AM to 8:00 PM
-Friday.....11:00 AM to 8:00 PM
-Saturday.....11:00 AM to 8:00 PM
-Sunday.....11:00 AM to 8:00 PM 
-		</pre></p></div>
+	<div class = "index-bottom"></div>
 
-	<div class="sect-footer">
-			<h1>FIND US AT:</h1><p><pre>
-Karam Restaurant
-1473 State St
-Schenectady NY
-12309
-Phone Number: (518)-557-2389 
-		</pre></p></div>
-	<div class="sect-footer">
-		<h1></h1>
-		<iframe class= "map-box" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14335.427165797602!2d-73.9325806986723!3d42.7913183753052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de720defc3f00d%3A0x3d4dd40543d7d72!2sKaram%20Restaurant!5e0!3m2!1sen!2sus!4v1705032131319!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>			
-			</div>
+<script>
+var img = document.querySelectorAll(".column img");	
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
 
-	<div class="sect-footer">
-		<h1></h1>
-		<img src="https://seeklogo.com/images/H/halal-logo-150ED752BD-seeklogo.com.png" alt="halal logo" width="175" height="175">			
-			</div>
-		</div>
-	</div>
-</div>
-
+img.forEach((imgA)=>{
+    imgA.onclick = (event) =>{
+  modal.style.display = "flex";
+  modalImg.src = event.target.src;
+}
+});
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+modal.onclick= (event) => {
+	if(event.target === modal){
+		modal.style.display = "none";
+	}
+}
+</script>
 </html>
 
 

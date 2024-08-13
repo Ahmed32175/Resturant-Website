@@ -41,8 +41,10 @@ Phone Number: (518-557-2389)
 	</div>
   </div>
 
-  		
-  <br><br>
+  <div class = ann-lay><h1 class="announce"><pre><i>
+Want to place an order?
+Call us at (518)-557-2389.</i></pre></h1></div>
+
   	<div class = "button-image-container">
 		<div class = "left-img">
 			<img src="https://seeklogo.com/images/H/halal-logo-150ED752BD-seeklogo.com.png" alt="halal logo" >			
@@ -58,7 +60,9 @@ Phone Number: (518-557-2389)
 <!-- The Modal -->
 <div id="myModal" class="modal">
 	<span class="close">&times;</span>
-  
+	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	
 	<img class="modal-content" id="img01">
   </div>
 
@@ -97,11 +101,13 @@ Phone Number: (518-557-2389)
 var img = document.querySelectorAll(".column img");	
 var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("img01");
+let index = 0;
 
 img.forEach((imgA)=>{
     imgA.onclick = (event) =>{
   modal.style.display = "flex";
   modalImg.src = event.target.src;
+  index= Array.from(img).indexOf(event.target);
 }
 });
 var span = document.getElementsByClassName("close")[0];
@@ -113,6 +119,17 @@ modal.onclick= (event) => {
 		modal.style.display = "none";
 	}
 }
+function plusSlides(n){
+		index += n;
+		if(index >= img.length){
+			index = 0;
+		}
+		else if(index < 0){
+			index = img.length-1;
+		}
+		modalImg.src = img[index].src;
+}
+
 </script>
 </html>
 

@@ -75,6 +75,8 @@ html, body{
     align-items: center; 
     width: 100%;
     padding: 1em; 
+	flex-wrap: wrap;
+	background-color: #F8F8F8;
 }
 .left-img, .right-img, .menuButton{
 	display: flex;
@@ -441,8 +443,36 @@ input[type=submit]{
   	font-size: 1.7em;
   	margin-top: 20%;
   }
-  .modal-content{
+  .left-info{
+	width: 100%;
+	padding-right: 0;
+  }
+  .left-info-style {
+    text-align: left; 
+	font-size: .9em;
+	padding: 10px;
+	justify-content:center;
+}
+.right-info{
 	width:100%;
+}
+
+.left-img img, .right-img img {
+	margin: 0 auto;
+	transform: none;
+  }
+  .menuButton{
+	margin: 0 4vh;
+  }
+  .menu-butt-style{
+	font-size: 1.8em;
+  }
+  .left-img, .right-img, .menuButton{
+	flex:1 1 100%;
+	margin: 1em 0;
+  }
+  .slides{
+	margin-top: 17%;
   }
 }
 
@@ -478,7 +508,12 @@ input[type=submit]{
 .announce{
   	margin-top: 20%;
   }
-
+  .slides{
+	margin-top: 8%;
+  }
+  .menuButton{
+	margin: 0 6vh;
+}
   /* MENU PAGE*/
 	.menu_center{
 		margin-top: 15%;
@@ -599,4 +634,8 @@ input[type=submit]{
 input[type=text], select, textarea{
 	padding:8px;
 	}
+	/*index page*/
+	.slides{
+		margin-top: 2%;
+	  }
 }

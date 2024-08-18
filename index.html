@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 <title>KaramRestaurant</title>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
 </head>
 <div id="container">
 
@@ -35,15 +37,14 @@ Phone Number: (518-557-2389)
 		</div>
 	</div>
 	<div class ="right-info">
-		<div class ="map">
-			<iframe class= "map-box" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14335.427165797602!2d-73.9325806986723!3d42.7913183753052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de720defc3f00d%3A0x3d4dd40543d7d72!2sKaram%20Restaurant!5e0!3m2!1sen!2sus!4v1705032131319!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>			
-		</div>
+		<div id ="map"></div>
 	</div>
   </div>
 
-  <div class = ann-lay><h1 class="announce"><pre><i>
-Want to place an order?
-Call us at (518)-557-2389.</i></pre></h1></div>
+  <div class="announce">
+    <h1 style="margin: 0%;"><pre style="margin: 0%;"><i>
+Want to place an order? Call us at xxx-xxx-xxxx.</i></pre></h1>
+</div>
 
   	<div class = "button-image-container">
 		<div class = "left-img">
@@ -130,6 +131,49 @@ function plusSlides(n){
 		modalImg.src = img[index].src;
 }
 
+function handleScroll() {
+        const announce = document.querySelector('.announce');
+        const announcePosition = announce.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.5;
+
+        if (announcePosition < screenPosition) {
+            announce.classList.add('slide-in');
+            window.removeEventListener('scroll', handleScroll); // Animation only happens once
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+</script>
+
+<script>
+	const mapbox = fetch('/file/mapbox.php');
+	mapbox
+	.then((response) => {
+		if(!response){
+			throw new Error(`HTTP error: ${response.status}`);
+		}
+		return response.json();
+	})
+	.then((data) => {
+	mapboxgl.accessToken = data.token;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [-73.918140, 42.792747], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 15 // starting zoom
+    });
+})
+ .catch((error) => {
+	console.error(`could not access mapbox: ${error}`);
+ });
+
+// Create a new marker.
+const marker = new mapboxgl.Marker()
+	.setLngLat([-73.917682, 42.792963])
+    .addTo(map);
+	
+	const nav = new mapboxgl.NavigationControl();
+	map.addControl(nav, 'top-left');
+	map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
 </script>
 </html>
 

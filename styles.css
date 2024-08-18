@@ -63,12 +63,14 @@ html, body{
 	align-items: center;
 }
 
+#map { 
+	top: 0;
+	bottom: 0; 
+	width: 60%;
+	height:40vh;
+	border: 1px solid black;
+	}
 
-.map-box {
-    width: 100%;
-    height: 100%;
- 
-}
 .button-image-container {
     display: flex;
 	justify-content: center;
@@ -220,12 +222,23 @@ html, body{
 	margin-bottom: 3%;
 }
 .announce{
-	color:indianred;
+	background-color:indianred;
+	color:white;
 	text-align: center;
-	font-size: 3.5em;
+	font-size: 1.5em;
 	font-family:"Monaco", monospace ;
 	text-decoration-line:underline ;
-	margin-top: none;
+	height:50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* opacity: 0;
+    transform: translateX(-100%); */
+    transition: all 0.5s ease-out;
+}
+.announce.slide-in {
+    opacity: 1;
+    transform: translateX(0);
 }
 /* HEADER MENU*/
 .header{
@@ -491,7 +504,10 @@ input[type=submit]{
 	padding: 10px;
 	justify-content:center;
 }
-
+#map{
+	width: 80%;
+	height: 30vh;
+}
 
 .left-img img, .right-img img {
 	margin: 0 auto;
@@ -532,6 +548,10 @@ input[type=submit]{
  .column {
     flex: 48%;
     max-width: 50%;
+  }
+  #map{
+	height:35vh;
+	width:85%;
   }
 /*ABOUT PAGE*/
   .half_sect{
